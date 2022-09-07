@@ -49,7 +49,6 @@
   }
 
   .intro-text-container {
-    /* border: green 0.25rem solid; */
     width: 30%;
   }
 
@@ -64,7 +63,6 @@
   }
 
   .form-container {
-    /* border: blue 0.25rem solid; */
     width: 35%;
     text-align: center;
     padding: var(--pad);
@@ -87,9 +85,20 @@
   input {
     width: 100%;
     padding: var(--pad);
-    margin-bottom: 1rem;
     border: gray solid 0.01rem;
   }
+
+  .input-margin {
+    margin-bottom: 1rem;
+  }
+
+  .input-error {
+    font-size: smaller;
+    font-style: italic;
+    text-align: right;
+    color: red;
+  }
+
 
   button {
     text-transform: uppercase;
@@ -98,6 +107,17 @@
     padding: 1rem;
     width: 100%;
     font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0 0.25rem #999;
+  }
+
+  button:hover {
+    background-color: hsl(154, 60%, 45%);
+  }
+
+  button:active {
+    transform: translateY(0.2rem);
   }
 
   .terms {

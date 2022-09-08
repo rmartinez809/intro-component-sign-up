@@ -24,16 +24,20 @@
     <section class="form-container">
       <p class="offer-banner radius"><strong>Try it free 7 days</strong> then $20/mo. thereafter</p>
       <form class="radius" id="form">
-        <input class="radius input-margin" type="text" id="first-name" name="first-name" placeholder="First Name"><br>
-        <p class="input-error input-margin" id="name-error"></p>
+        <input class="radius" type="text" id="first-name" name="first-name" placeholder="First Name"><br>
+        <p class="input-error" id="fname-error"></p>
 
         <input class="radius input-margin" type="text" id="last-name" name="last-name" placeholder="Last Name"><br>
+        <p class="input-error" id="lname-error"></p>
 
         <input class="radius input-margin" type="email" id="email" name="email" placeholder="Email Address"><br>
+        <p class="input-error" id="email-error"></p>
+
 
         <input class="radius input-margin" type="password" id="password" name="password" placeholder="Password"><br>
+        <p class="input-error" id="password-error"></p>
 
-        <button class="radius" type="submit" onclick="onSubmit()">Claim your free trial</button>
+        <button class="radius input-margin" type="submit" onclick="onSubmit()">Claim your free trial</button>
 
         <p class="terms">By clicking the button, you are agreeing to our <a href="https://liquiddeath.com/pages/sell-your-soul" target="_blank">Terms and Services</a></p>
       </form>

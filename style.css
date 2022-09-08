@@ -6,6 +6,7 @@
   --blue: hsl(248, 32%, 49%);
   --gray: hsl(246, 25%, 77%);
   --pad: 1rem;
+  --border-width: 0.01rem;
   --shadow-color: 0deg 64% 45%;
   --shadow-elevation-high:
     0.3px 0.5px 0.4px hsl(var(--shadow-color) / 0.67),
@@ -85,11 +86,11 @@
   input {
     width: 100%;
     padding: var(--pad);
-    border: gray solid 0.01rem;
+    border: gray solid var(--border-width);
   }
 
   .input-margin {
-    margin-bottom: 1rem;
+    margin-top: 1rem;
   }
 
   .input-error {
@@ -97,6 +98,15 @@
     font-style: italic;
     text-align: right;
     color: red;
+  }
+
+  .error-border {
+    border: red solid var(--border-width);
+    background-image: url("./images/icon-error.svg") !important;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: 1rem;
+    background-position: 98% 50%;
   }
 
 

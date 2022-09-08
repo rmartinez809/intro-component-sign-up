@@ -1,6 +1,7 @@
+let errorFlag = false;
+
 let onSubmit = () => {
     const form = document.getElementById("form");
-
 
     const fnElement = document.getElementById("first-name");
     const firstName = fnElement.value;
@@ -44,16 +45,26 @@ let onSubmit = () => {
             addErrorClass(passwordElement);
         }
         else clearError(passwordError, passwordElement);
+
+        if (!errorFlag) {
+            alert("Thank you for signing up!");
+
+            clearFields([fnElement, lnElement, emailElement, passwordElement]);
+
+            window.location.reload();
+        }
     })
 }
 
 let addErrorClass = (inputElement) => {
     inputElement.classList.add("error-border");
+    errorFlag = true;
 }
 
 let clearError = (errorMsg, inputElement) => {
     inputElement.classList.remove("error-border");
     errorMsg.innerHTML = '';
+    errorFlag = false;
 }
 
 let validateEmail = (input) => {
@@ -63,4 +74,10 @@ let validateEmail = (input) => {
         return true;
     else
         return false;
+}
+
+let clearFields = (array) => {
+    array.forEach((element) => {
+        element.value = '';
+    });
 }

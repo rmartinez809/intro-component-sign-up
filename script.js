@@ -4,39 +4,56 @@ let onSubmit = () => {
 
     const fnElement = document.getElementById("first-name");
     const firstName = fnElement.value;
+    const fnameError = document.getElementById("fname-error")
 
     const lnElement = document.getElementById("last-name");
     const lastName = lnElement.value;
+    const lnameError = document.getElementById("lname-error");
 
-    const emElement = document.getElementById("email");
-    const email = emElement.value;
+    const emailElement = document.getElementById("email");
+    const email = emailElement.value;
+    const emailError = document.getElementById("email-error");
 
-    const psElement = document.getElementById("password")
-    const password = psElement.value;
+    const passwordElement = document.getElementById("password")
+    const password = passwordElement.value;
+    const passwordError = document.getElementById("password-error");
 
     form.addEventListener('submit', (e) => {
         e.preventDefault();
 
-        if (firstName === '' || firstName === null) {
-            document.getElementById("fname-error").innerHTML = "First Name cannot be empty";
-            fnElement.classList.add("error-border");
+        if (!firstName) {
+            fnameError.innerHTML = "First Name cannot be empty";
+            addErrorClass(fnElement);
         }
+        else clearError(fnameError, fnElement);
 
-        if (lastName === '' || lastName === null) {
-            document.getElementById("lname-error").innerHTML = "Last Name cannot be empty";
-            lnElement.classList.add("error-border");
+        if (!lastName) {
+            lnameError.innerHTML = "Last Name cannot be empty";
+            addErrorClass(lnElement);
         }
-
-        if (password === '' || password === null) {
-            document.getElementById("password-error").innerHTML = "Password cannot be empty";
-            psElement.classList.add("error-border");
-        }
+        else clearError(lnameError, lnElement);
 
         if (!validateEmail(email)) {
-            document.getElementById("email-error").innerHTML = "Looks like this is not an email";
-            emElement.classList.add("error-border");
+            emailError.innerHTML = "Looks like this is not an email";
+            addErrorClass(emailElement);
         }
+        else clearError(emailError, emailElement);
+
+        if (!password) {
+            passwordError.innerHTML = "Password cannot be empty";
+            addErrorClass(passwordElement);
+        }
+        else clearError(passwordError, passwordElement);
     })
+}
+
+let addErrorClass = (inputElement) => {
+    inputElement.classList.add("error-border");
+}
+
+let clearError = (errorMsg, inputElement) => {
+    inputElement.classList.remove("error-border");
+    errorMsg.innerHTML = '';
 }
 
 let validateEmail = (input) => {
